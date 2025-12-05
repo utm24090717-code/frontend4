@@ -1,4 +1,3 @@
-// src/components/DashboardMaintenance/DashboardMaintenance.jsx
 import './DashboardMaintenance.css';
 
 const DashboardMaintenance = () => {
@@ -19,11 +18,14 @@ const DashboardMaintenance = () => {
 
   return (
     <div className="dashboard-maintenance">
+
+      {/* HEADER */}
       <div className="dashboard-header">
         <h1>Dashboard de Mantenimiento</h1>
         <div className="dashboard-subtitle">SALUD DE ACTIVOS – MANTENIMIENTO</div>
       </div>
 
+      {/* MÉTRICAS */}
       <div className="metrics-grid">
         {maintenanceMetrics.map((metric, index) => (
           <div className="metric-card" key={index}>
@@ -34,9 +36,12 @@ const DashboardMaintenance = () => {
       </div>
 
       <div className="maintenance-content">
+
+        {/* TABLA DE ACTIVOS */}
         <div className="assets-section">
           <div className="dashboard-card">
             <h2>Estado de Activos Críticos</h2>
+
             <table className="nissan-table">
               <thead>
                 <tr>
@@ -47,6 +52,7 @@ const DashboardMaintenance = () => {
                   <th>Estado</th>
                 </tr>
               </thead>
+
               <tbody>
                 {assets.map((asset) => (
                   <tr key={asset.id}>
@@ -56,8 +62,9 @@ const DashboardMaintenance = () => {
                     <td>{asset.mtbf}</td>
                     <td>
                       <span className={`status-indicator status-${asset.status}`}></span>
-                      {asset.status === 'green' ? 'Óptimo' : 
-                       asset.status === 'amber' ? 'Alerta' : 'Crítico'}
+                      {asset.status === 'green' ? 'Óptimo' :
+                       asset.status === 'amber' ? 'Alerta' :
+                       'Crítico'}
                     </td>
                   </tr>
                 ))}
@@ -66,89 +73,106 @@ const DashboardMaintenance = () => {
           </div>
         </div>
 
+        {/* CHARTS */}
         <div className="charts-section">
+
+          {/* PREDICTIVO */}
           <div className="dashboard-card">
             <h3>Predictivo (RULC/D)</h3>
+
             <div className="predictive-chart">
               <div className="predictive-item">
                 <div className="predictive-label">Robot 4</div>
                 <div className="predictive-bar">
-                  <div className="predictive-fill" style={{ width: '85%' }}></div>
+                  <div className="predictive-fill" style={{ width: "85%" }}></div>
                 </div>
                 <div className="predictive-value">85% vida útil</div>
               </div>
+
               <div className="predictive-item">
                 <div className="predictive-label">Prensa 7</div>
                 <div className="predictive-bar">
-                  <div className="predictive-fill critical" style={{ width: '30%' }}></div>
+                  <div className="predictive-fill critical" style={{ width: "30%" }}></div>
                 </div>
                 <div className="predictive-value">30% vida útil</div>
               </div>
+
               <div className="predictive-item">
                 <div className="predictive-label">CNC 2</div>
                 <div className="predictive-bar">
-                  <div className="predictive-fill" style={{ width: '65%' }}></div>
+                  <div className="predictive-fill" style={{ width: "65%" }}></div>
                 </div>
                 <div className="predictive-value">65% vida útil</div>
               </div>
             </div>
+
             <div className="predictive-info">
               <p><strong>3 equipos</strong> requieren atención predictiva</p>
             </div>
           </div>
 
+          {/* PM CHART */}
           <div className="dashboard-card">
             <h3>% Cumplimiento Plan PM</h3>
+
             <div className="pm-chart">
               <div className="pm-month">
                 <div className="pm-label">Ene</div>
                 <div className="pm-bar">
-                  <div className="pm-fill" style={{ height: '85%' }}></div>
+                  <div className="pm-fill" style={{ height: "85%" }}></div>
                 </div>
                 <div className="pm-value">85%</div>
               </div>
+
               <div className="pm-month">
                 <div className="pm-label">Feb</div>
                 <div className="pm-bar">
-                  <div className="pm-fill" style={{ height: '92%' }}></div>
+                  <div className="pm-fill" style={{ height: "92%" }}></div>
                 </div>
                 <div className="pm-value">92%</div>
               </div>
+
               <div className="pm-month">
                 <div className="pm-label">Mar</div>
                 <div className="pm-bar">
-                  <div className="pm-fill" style={{ height: '78%' }}></div>
+                  <div className="pm-fill" style={{ height: "78%" }}></div>
                 </div>
                 <div className="pm-value">78%</div>
               </div>
+
               <div className="pm-month">
                 <div className="pm-label">Abr</div>
                 <div className="pm-bar">
-                  <div className="pm-fill" style={{ height: '95%' }}></div>
+                  <div className="pm-fill" style={{ height: "95%" }}></div>
                 </div>
                 <div className="pm-value">95%</div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
 
+      {/* SCATTER PLOT */}
       <div className="correlation-section">
         <div className="dashboard-card">
           <h3>Correlación Vibración-Temperatura</h3>
+
           <div className="scatter-plot">
             <div className="plot-grid">
               <div className="grid-line"></div>
               <div className="grid-line"></div>
               <div className="grid-line"></div>
             </div>
+
             <div className="plot-points">
-              <div className="point normal" style={{ left: '20%', top: '30%' }}></div>
-              <div className="point alert" style={{ left: '40%', top: '50%' }}></div>
-              <div className="point critical" style={{ left: '70%', top: '80%' }}></div>
-              <div className="point normal" style={{ left: '25%', top: '35%' }}></div>
-              <div className="point normal" style={{ left: '30%', top: '40%' }}></div>
+              <div className="point normal" style={{ left: "20%", top: "30%" }}></div>
+              <div className="point alert" style={{ left: "40%", top: "50%" }}></div>
+              <div className="point critical" style={{ left: "70%", top: "80%" }}></div>
+              <div className="point normal" style={{ left: "25%", top: "35%" }}></div>
+              <div className="point normal" style={{ left: "30%", top: "40%" }}></div>
             </div>
+
             <div className="plot-axes">
               <div className="axis-x">Temperatura (°C)</div>
               <div className="axis-y">Vibración (mm/s)</div>
@@ -156,6 +180,7 @@ const DashboardMaintenance = () => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

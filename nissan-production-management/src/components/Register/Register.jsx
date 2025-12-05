@@ -16,7 +16,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    
+
     // Validaciones
     if (!email || !password || !confirmPassword) {
       setError('Por favor completa todos los campos');
@@ -45,18 +45,15 @@ const Register = () => {
     }
 
     setIsLoading(true);
-    
+
     try {
       const userData = await register(email, password, userType);
-      
-      // Redirigir según el tipo de usuario
-      if (userData.type === 'maintenance') {
-        navigate('/maintenance');
-      } else if (userData.type === 'finance') {
-        navigate('/finance');
-      } else {
-        navigate('/dashboard');
-      }
+
+      // Redirección según tipo
+      if (userData.type === 'maintenance') navigate('/maintenance');
+      else if (userData.type === 'finance') navigate('/finance');
+      else navigate('/dashboard');
+
     } catch (err) {
       setError(err.message || 'Error al crear la cuenta');
       setIsLoading(false);
@@ -82,52 +79,43 @@ const Register = () => {
           <p className="register-subtitle">Regístrate para acceder al sistema</p>
         </div>
 
-        {error && (
-          <div className="error-message">
-            ⚠️ {error}
-          </div>
-        )}
+        {error && <div className="error-message">⚠ {error}</div>}
 
         <form onSubmit={handleSubmit} className="register-form">
+
+          {/* CORREO */}
           <div className="form-group">
             <label>Correo electrónico</label>
             <input
               type="email"
               value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-                setError('');
-              }}
+              onChange={(e) => { setEmail(e.target.value); setError(''); }}
               placeholder="ejemplo@nissan.com"
               required
               disabled={isLoading}
             />
           </div>
 
+          {/* PASS + CONFIRM */}
           <div className="form-row">
             <div className="form-group">
               <label>Contraseña</label>
               <input
                 type="password"
                 value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                  setError('');
-                }}
+                onChange={(e) => { setPassword(e.target.value); setError(''); }}
                 placeholder="Mínimo 6 caracteres"
                 required
                 disabled={isLoading}
               />
             </div>
+
             <div className="form-group">
               <label>Confirmar contraseña</label>
               <input
                 type="password"
                 value={confirmPassword}
-                onChange={(e) => {
-                  setConfirmPassword(e.target.value);
-                  setError('');
-                }}
+                onChange={(e) => { setConfirmPassword(e.target.value); setError(''); }}
                 placeholder="Repite tu contraseña"
                 required
                 disabled={isLoading}
@@ -135,31 +123,38 @@ const Register = () => {
             </div>
           </div>
 
+          {/* TIPOS DE CUENTA */}
           <div className="form-group">
             <label>Tipo de cuenta</label>
             <div className="user-type-options">
+
               {userTypes.map((type) => (
-                <div 
+                <div
                   key={type.id}
                   className={`user-type-card ${userType === type.id ? 'selected' : ''}`}
                   onClick={() => !isLoading && setUserType(type.id)}
                 >
                   <div className="type-icon">{type.icon}</div>
+
                   <div className="type-info">
                     <h4>{type.label}</h4>
                     <p>{type.description}</p>
                   </div>
+
                   {userType === type.id && (
                     <div className="type-check">✓</div>
                   )}
                 </div>
               ))}
+
             </div>
           </div>
 
+          {/* BOTONES */}
           <div className="form-actions">
-            <button 
-              type="submit" 
+
+            <button
+              type="submit"
               className="btn-nissan register-button"
               disabled={isLoading}
             >
@@ -168,17 +163,20 @@ const Register = () => {
                   <span className="spinner"></span>
                   Creando cuenta...
                 </>
-              ) : 'Crear cuenta'}
+              ) : (
+                'Crear cuenta'
+              )}
             </button>
 
-            <button 
-              type="button" 
+            <button
+              type="button"
               className="back-button"
               onClick={handleBackToLogin}
               disabled={isLoading}
             >
               ← Volver al login
             </button>
+
           </div>
         </form>
       </div>
