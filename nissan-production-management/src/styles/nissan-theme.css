@@ -1,0 +1,11 @@
+/* src/styles/nissan-theme.css */
+:root {
+  --nissan-red: #c3002f;
+  --nissan-dark: #1a1a1a;
+  --nissan-gray: #333333;
+  --nissan-light-gray: #f5f5f5;
+  --nissan-blue: #0066b1;
+  --nissan-green: #00a651;
+  --nissan-amber: #ff9900;
+  --nissan-white: #ffffff;
+}

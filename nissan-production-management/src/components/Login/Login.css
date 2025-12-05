@@ -1,0 +1,173 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+  padding: 20px;
+}
+
+.login-container {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-header {
+  margin-bottom: 30px;
+}
+
+.login-header h1 {
+  color: #c3002f;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.login-header h2 {
+  color: #333;
+  font-weight: normal;
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.login-subtitle {
+  color: #666;
+  font-size: 0.9em;
+  margin-top: 0;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.error-message {
+  background-color: #ffe6e6;
+  color: #c3002f;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  border-left: 4px solid #c3002f;
+  text-align: left;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #c3002f;
+  box-shadow: 0 0 0 2px rgba(195, 0, 47, 0.1);
+}
+
+.form-group input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.login-button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  position: relative;
+}
+
+.login-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.login-actions {
+  margin-top: 10px;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.link-button:hover:not(:disabled) {
+  color: #c3002f;
+}
+
+.link-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.login-footer {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+  color: #666;
+}
+
+.login-footer p {
+  margin: 0;
+}
+
+.register-link {
+  background: none;
+  border: none;
+  color: #c3002f;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.register-link:hover:not(:disabled) {
+  text-decoration: none;
+}
+
+.register-link:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
